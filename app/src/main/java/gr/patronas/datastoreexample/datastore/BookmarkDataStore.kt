@@ -16,15 +16,11 @@ class BookmarkDataStore(
     context: Context
 ) {
     private val applicationContext = context.applicationContext
-    private val dataStore: DataStore<Bookmark>
-
-    init {
-        dataStore = applicationContext.createDataStore(
-            fileName = "bookmark.pb",
-            serializer = BookmarkSerializer
-        )
-    }
-
+    private val dataStore: DataStore<Bookmark> = applicationContext.createDataStore(
+        fileName = "bookmark.pb",
+        serializer = BookmarkSerializer
+    )
+    
     val bookmark = dataStore.data
         .map { bookmarkSchema ->
             bookmarkSchema
@@ -47,10 +43,12 @@ class BookmarkDataStore(
                 throw CorruptionException("Cannot read proto.", exception)
             }
         }
+
         override fun writeTo(
             t: Bookmark,
             output: OutputStream
         ) = t.writeTo(output)
+
         override val defaultValue: Bookmark
             get() = Bookmark.getDefaultInstance()
     }
