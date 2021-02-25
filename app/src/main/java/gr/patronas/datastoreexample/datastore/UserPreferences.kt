@@ -1,4 +1,4 @@
-package gr.enginius.datastoreexample.datastore
+package gr.patronas.datastoreexample.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore

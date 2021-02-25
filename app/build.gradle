@@ -41,7 +41,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "gr.enginius.datastoreexample"
+        applicationId "gr.patronas.datastoreexample"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
