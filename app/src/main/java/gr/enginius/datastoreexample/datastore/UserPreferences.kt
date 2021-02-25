@@ -1,11 +1,11 @@
 package gr.enginius.datastoreexample.datastore
 
 import android.content.Context
-import androidx.datastore.DataStore
-import androidx.datastore.preferences.Preferences
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.createDataStore
-import androidx.datastore.preferences.edit
-import androidx.datastore.preferences.preferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -34,6 +34,6 @@ class UserPreferences(
 
 
     companion object {
-        val KEY_BOOKMARK = preferencesKey<String>("key_bookmark")
+        val KEY_BOOKMARK = stringPreferencesKey("key_bookmark")
     }
 }
