@@ -7,6 +7,7 @@ import androidx.datastore.core.Serializer
 import androidx.datastore.createDataStore
 import androidx.datastore.preferences.protobuf.InvalidProtocolBufferException
 import gr.patronas.datastoreexample.Bookmark
+import gr.patronas.datastoreexample.datastore.model.BookmarkModel
 import kotlinx.coroutines.flow.map
 import java.io.InputStream
 import java.io.OutputStream
@@ -26,13 +27,14 @@ class BookmarkDataStore(
 
     val bookmark = dataStore.data
         .map { bookmarkSchema ->
-            bookmarkSchema.bookmark
+            bookmarkSchema
         }
 
-    suspend fun saveBookmark(bookmark: String) {
+    suspend fun saveBookmark(bookmark: BookmarkModel) {
         dataStore.updateData { currentBookmark ->
             currentBookmark.toBuilder()
-                .setBookmark(bookmark)
+                .setName(bookmark.name)
+                .setNotes(bookmark.notes)
                 .build()
         }
     }
@@ -45,12 +47,10 @@ class BookmarkDataStore(
                 throw CorruptionException("Cannot read proto.", exception)
             }
         }
-
         override fun writeTo(
             t: Bookmark,
             output: OutputStream
         ) = t.writeTo(output)
-
         override val defaultValue: Bookmark
             get() = Bookmark.getDefaultInstance()
     }

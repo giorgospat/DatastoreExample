@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import gr.patronas.datastoreexample.datastore.BookmarkDataStore
+import gr.patronas.datastoreexample.datastore.model.BookmarkModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
@@ -19,14 +20,22 @@ class MainActivity : AppCompatActivity() {
         bookmarkDataStore = BookmarkDataStore(this)
 
         buttonSaveBookmark.setOnClickListener {
-            val bookmark = editTextBookmark.text.toString().trim()
+            val bookmarkName = editTextBookmarkName.text.toString().trim()
+            val bookmarkNotes = editTextBookmarkNotes.text.toString().trim()
+
             lifecycleScope.launch {
-                bookmarkDataStore.saveBookmark(bookmark)
+                bookmarkDataStore.saveBookmark(
+                    BookmarkModel(
+                        name = bookmarkName,
+                        notes = bookmarkNotes
+                    )
+                )
             }
         }
 
         bookmarkDataStore.bookmark.asLiveData().observe(this, {
-            textViewCurrentBookmark.text = it
+            textViewCurrentBookmarkName.text = it.name
+            textViewCurrentBookmarkNotes.text = it.notes
         })
 
     }

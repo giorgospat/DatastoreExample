@@ -7,16 +7,28 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextBookmark"
+        android:id="@+id/editTextBookmarkName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
+        android:hint="Edit bookmark name"
         android:inputType="textPersonName"
-        android:hint="Edit bookmark bvalue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextBookmarkNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Edit bookmark notes"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBookmarkName" />
 
     <Button
         android:id="@+id/buttonSaveBookmark"
@@ -26,14 +38,14 @@
         android:text="Save bookmark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBookmark" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextBookmarkNotes" />
 
     <TextView
         android:id="@+id/txt_bookmark_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Current Bookmark"
+        android:layout_marginTop="40dp"
+        android:text="Saved Bookmark:"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,13 +53,25 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonSaveBookmark" />
 
     <TextView
-        android:id="@+id/textViewCurrentBookmark"
+        android:id="@+id/textViewCurrentBookmarkName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="None"
+        android:text="Bookmark name"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_bookmark_label" />
+
+    <TextView
+        android:id="@+id/textViewCurrentBookmarkNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Bookmark notes"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentBookmarkName" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
