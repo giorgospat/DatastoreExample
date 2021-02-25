@@ -1,11 +1,11 @@
-package gr.enginius.datastoreexample
+package gr.patronas.datastoreexample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
-import gr.enginius.datastoreexample.datastore.UserPreferences
+import gr.patronas.datastoreexample.datastore.UserPreferences
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 

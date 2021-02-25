@@ -1,4 +1,4 @@
-package gr.enginius.datastoreexample
+package gr.patronas.datastoreexample
 
 import org.junit.Test
 
